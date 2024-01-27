@@ -4,12 +4,14 @@ Docker is a command-line program, a background daemon, and a set of remote servi
 accomplishes this using a UNIX technology called containers
 
 ### Containers
+
 Containers are virtual environments tht keep applications and software isolated from the host system.
 Containers have been around for a ling time but building them manually can be challenging, this is where Docker comes in.
-Docker uses existing container engines to provide consistnet containers 
+Docker uses existing container engines to provide consistnet containers
 
 ### Virtual Machines
-A VM is a software that emulates an entire computer, with its kernel, architecture and resurces.  
+
+A VM is a software that emulates an entire computer, with its kernel, architecture and resurces.
 
 ### VM vs Containers
 
@@ -17,24 +19,21 @@ There is no "which is better" argument here as each one has its own use cases an
 
 But some differences to note:
 
-* VMs are larger in size and resource consumption
-* Containers require a Linux kernel to operate while VMs can be run on any OS 
-* Containers are usually faster and use resource needed only
+- VMs are larger in size and resource consumption
+- Containers require a Linux kernel to operate while VMs can be run on any OS
+- Containers are usually faster and use resource needed only
 
 The image below show differences between VMs and Containers.
 
-----
+---
 
 ![Diagram showing difference between VM and Containers](imgs/containerVSvm.png)
 
- 
 ### Images
 
 Image is a packaged application that contains all dependencies, source codeand complete environment and configurations of that application, think of it as a blueprint that you use to create instances of the application, these instances are containers.
 
-
---------
-
+---
 
 ## Installing Docker
 
@@ -67,115 +66,111 @@ WSL provides you with a Linux environment and the BASH shell, we will go through
 ## Basic Docker commands
 
 Docker offers lots of functionalties and has lots of commands for specific uses, we will look now at the most common commands that are used with Docker
- 
+
 Before using any of these commands we must write `docker` before it.
 
- ---
+---
 
 ### `run` starts a container
- 
- Syntax: `docker run <image_name>`
 
- If the image is downloaded it will start, otherwise it is pulled and downloaded on your machine first.
+Syntax: `docker run <image_name>`
 
- ![](imgs/DockerRun.png)
+If the image is downloaded it will start, otherwise it is pulled and downloaded on your machine first.
 
- --- 
+![](imgs/DockerRun.png)
+
+---
 
 ### `ps` lists containers
 
- Syntax: `docker ps`
+Syntax: `docker ps`
 
- Lists all running containers, and some basic info about them (image, id, name, etc...)
+Lists all running containers, and some basic info about them (image, id, name, etc...)
 
- ![](imgs/DockerPs.png)
+![](imgs/DockerPs.png)
 
- If we want to list all containers, running or not, we use the `-a` option.
+If we want to list all containers, running or not, we use the `-a` option.
 
- ![](imgs/DockerPsA.png)
+![](imgs/DockerPsA.png)
 
- ---
+---
 
- ### `stop` stops containers
+### `stop` stops containers
 
- Syntax: `docker stop <container_ID>` or `docker stop <container_name>`
+Syntax: `docker stop <container_ID>` or `docker stop <container_name>`
 
- We need to pass the container ID or container name to stop a container, we can find those from the `docker ps` command.
+We need to pass the container ID or container name to stop a container, we can find those from the `docker ps` command.
 
- ![](imgs/DockerStopID.png)
- ![](imgs/DockerStopName.png)
+![](imgs/DockerStopID.png)
+![](imgs/DockerStopName.png)
 
- After running `docker stop` it will print out the name or the ID that we passed.
+After running `docker stop` it will print out the name or the ID that we passed.
 
- ---
+---
 
- ### `rm` removes containers
+### `rm` removes containers
 
- Like `stop` we pass either the name or ID of the container, if removed succesfully, it will print out what we passed to it.
+Like `stop` we pass either the name or ID of the container, if removed succesfully, it will print out what we passed to it.
 
- ![](imgs/DockerRmID.png)
- ![](imgs/DockerRmName.png)
+![](imgs/DockerRmID.png)
+![](imgs/DockerRmName.png)
 
- ### `images` lists images
+### `images` lists images
 
- ![](imgs/DockerImages.png)
+![](imgs/DockerImages.png)
 
- ---
+---
 
- ### `rmi` removes images
+### `rmi` removes images
 
- If we want to delete an image, we must remove all dependent containers first.
+If we want to delete an image, we must remove all dependent containers first.
 
- ![](imgs/DockerRmiError.png)
+![](imgs/DockerRmiError.png)
 
- Here we tried to delete the image `redis` but we had redis containers, even though they were stopped, it printed an error.
+Here we tried to delete the image `redis` but we had redis containers, even though they were stopped, it printed an error.
 
- ![](imgs/DockerRmi.png)
+![](imgs/DockerRmi.png)
 
- Aftewr deleting the redis containers we can remove the redis image succesfully 
+Aftewr deleting the redis containers we can remove the redis image succesfully
 
- ### `pull` downloads images
+### `pull` downloads images
 
- We saw earlier that when running `docker run` it checks, if the image isn't available on the machine, it downloads it then runs it in a container directly.
+We saw earlier that when running `docker run` it checks, if the image isn't available on the machine, it downloads it then runs it in a container directly.
 
- What if we want to only download an image without running a container?
+What if we want to only download an image without running a container?
 
- We use `docker pull` which "pulls" the image without creating a container
+We use `docker pull` which "pulls" the image without creating a container
 
- ![](imgs/DockerPull.png)
+![](imgs/DockerPull.png)
 
- ----------
+---
 
+When we run a linux container we will notice that it exits immediately, why is that?
 
- When we run a linux container we will notice that it exits immediately, why is that?
+Containers are not meant to host an OS, it is meant to run a specific task or process, such as host an instance of a web server, database, or simply to carry a computation or analysis task, once this task is complete, it exits.
 
- Containers are not meant to host an OS, it is meant to run a specific task or process, such as host an instance of a web server, database, or simply to carry a computation or analysis task, once this task is complete, it exits.
+This is why when we run an image of an OS, say Ubuntu, it exits immediately.
 
- This is why when we run an image of an OS, say Ubuntu, it exits immediately.
+### Appending commands
 
- ### Appending commands
+We can append commands after `docker run` to run a specific command in the container when it starts.
 
- We can append commands after `docker run` to run a specific command in the container when it starts.
- 
- For example `docker run ubuntu sleep 10`
- will start an Ubuntu container and executes `sleep 10` and after the command exits the container exits too.
+For example `docker run ubuntu sleep 10`
+will start an Ubuntu container and executes `sleep 10` and after the command exits the container exits too.
 
+### `exec` executes commands
 
- ### `exec` executes commands
+Okay so we saw how to run a command when we are creating the container, what if we have an already running container, how can we execute a command on it?
 
- Okay so we saw how to run a command when we are creating the container, what if we have an already running container, how can we execute a command on it?
+We use `docker exec <container_name> <command>`
 
- We use `docker exec <container_name> <command>`
+![](imgs/DockerExec1.png)
 
- ![](imgs/DockerExec1.png)
+Here we have a running Ubuntu container, we want to print the contents of the `/etc/hosts` file
 
- Here we have a running Ubuntu container, we want to print the contents of the `/etc/hosts` file
+![](imgs/DockerExec2.png)
 
- ![](imgs/DockerExec2.png)
-
-
-----------------
-
+---
 
 ## Docker run
 
@@ -195,7 +190,7 @@ In the first image we didn't specify a tag so it pulled `latest`, in the second 
 
 To find all the tags relating to an image we look this image up on [Docker Hub](https://hub.docker.com/) and we will see all tags there.
 
-### Standard Input (stdin)
+### Standard Input
 
 Suppose we have a program that takes input, say a script that takes your name and prints `Hello <your_name>`.
 
@@ -239,7 +234,7 @@ Note that only one service can run on this host port.
 
 ### Volume Mapping
 
-Containers have their filesystem isolated from the host, so data stored and modified in the container aren't saved on the host. 
+Containers have their filesystem isolated from the host, so data stored and modified in the container aren't saved on the host.
 
 Let's say we have a database container, all data stored in this DB in stored in the container, if this container is removed, all data on the database is lost.
 

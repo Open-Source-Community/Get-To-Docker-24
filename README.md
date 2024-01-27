@@ -1,10 +1,33 @@
 # Get-To-Docker-24
 
-
-
 ## Table of Contents
 
-| Session | Topics |
-| --- | --- |
-| [Session 1](./Session%201/README.md) | 📌 [What is Docker](./Session%201/README.md#What-is-Docker) <br> :pushpin:[Containers](./Session%201/README.md#containers) <br> 📌 [Virtual Machines](./Session%201/README.md#Virtual-Machines) <br> 📌 [VM vs Containers](./Session%201/README.md#VM-vs-Containers) <br> 📌 [Images](./Session%201/README.md#Images) <br> 📌 [Installing Docker](./Session%201/README.md#Installing-Docker) <br> 📌 [Using WSL](./Session%201/README.md#Using-WSL) <br> 📌[Basic Bash commands](./Session%201/README.md#Basic-Bash-commands) <br> 📌 [Basic Docker commands](./Session%201/README.md#Basic-Docker-commands) <br> 📌 [Docker run](./Session%201/README.md#Docker-run) <br> <li style="color:white;"> 📍 [Standard Input (stdin)](./Session%201/README.md#Standard-Input-(stdin)) <br><li style="color:white;"> 📍 [Port Binding](./Session%201/README.md#Port-Binding) <br> <li style="color:white;"> 📍 [Volume Mapping](./Session%201/README.md#Volume-Mapping)
- 
+<table>
+<tr>
+    <th>Session</th>
+    <th>Topics</th>
+</tr>
+<tr>
+    <td><a href="./Session%201/README.md">Session 1</a></td>
+    <td>
+    <ul>
+        <li><a href="./Session%201/README.md#What is Docker">What is Docker</a></li>
+        <ul>
+        <li><a href="./Session%201/README.md#containers">Containers</a></li>
+        <li><a href="./Session%201/README.md#Virtual-Machines">Virtual Machines</a></li>
+        <li><a href="./Session%201/README.md#VM-vs-Containers">VM vs Containers</a></li>
+        <li><a href="./Session%201/README.md#Images">Images</a></li>
+        </ul>
+        <li><a href="./Session%201/README.md#Installing-Docker">Installing Docker</a></li>
+        <li><a href="./Session%201/README.md#Using-WSL">Using WSL</a></li>
+        <li><a href="./Session%201/README.md#Basic-Bash-commands">Basic Bash commands</a></li>
+        <li><a href="./Session%201/README.md#Basic-Docker-commands">Basic Docker commands</a></li>
+        <li><a href="./Session%201/README.md#Docker-run">Docker run</a></li>
+        <ul>
+        <li><a href="./Session%201/README.md#Standard-Input">Standard Input (stdin)</a></li>
+        <li><a href="./Session%201/README.md#Port-Binding">Port Binding</a></li>
+        <li><a href="./Session%201/README.md#Volume-Mapping">Volume Mapping</a></li>
+        </ul>
+    </ul>
+    </td>
+</tr>
