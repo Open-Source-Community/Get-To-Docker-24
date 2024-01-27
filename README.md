@@ -1,5 +1,7 @@
 # Get-To-Docker-24
 
+Welcome to Get To Docker Workshop 2023! This repository contains all the materials you will need for the training, including the documents for each session and the assigned tasks.
+
 ## Table of Contents
 
 <table>
