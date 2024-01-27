@@ -40,7 +40,16 @@ Image is a packaged application that contains all dependencies, source codeand c
 
 Docker requires a Linux kernel to run, however now you don't need to run a Linux machine to run Docker, if you are on Windows you can use Windows Subsystem for Linux (WSL) which allows you to run a Linux environment in your Windows machine.
 
-You can find a guide on how to install Docker on WSL [here]()
+You can find a guide on how to install Docker on WSL [here](https://drive.google.com/drive/folders/1zHdFbbcLQXjtZ_55CDosMGEkqXXgwlYw?usp=sharing)
+
+---
+
+
+On linux you can install Docker from your package manager
+
+* `sudo apt install docker` on Debian and Ubuntu based ditros
+* `sudo dnf install docker` on Fedora based distros
+* `sudo pacman -Syu docker` in Arch based distros
 
 ## Using WSL
 
