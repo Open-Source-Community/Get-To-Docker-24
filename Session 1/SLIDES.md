@@ -146,7 +146,6 @@ An image is a packaged application that contains all dependencies, source code a
 
 * Syntax: `docker run <image_name`
 * If the image is downloaded it will start, otherwise it is pulled and downloaded on your machine first.
-
 ![height:2in](imgs/DockerRun.png)
 
 * Docker gives containers random names if we don't specify one
@@ -185,6 +184,25 @@ An image is a packaged application that contains all dependencies, source code a
 <!--_backgroundColor: #cce3ee-->
 <!--_color: #455a64-->
 
+## `start` starts containers
+
+ Syntax:
+  - `docker start <container_name>`
+  - `docker start <container_ID>`
+  
+  ![](imgs/DockerStart1.png)
+ 
+ - Here we have container `test_ubuntu` which is not running
+![](imgs/DockerStartID.png)
+![](imgs/DockerStartName.png)
+
+ * Using the name or the ID we can start it.
+
+---
+
+<!--_backgroundColor: #cce3ee-->
+<!--_color: #455a64-->
+
 ## `stop` stops containers
 
 Syntax:
@@ -204,7 +222,6 @@ Syntax:
 ## `rm` removes containers
 
 * Like `stop` we pass either the name or ID of the container, if removed succesfully, it will print out what we passed to it.
-  
 ![](imgs/DockerRmID.png)
 ![](imgs/DockerRmName.png)
 
@@ -228,7 +245,6 @@ Syntax:
 ![](imgs/DockerRmiError.png)
 
 * Here we tried to delete the image `redis` but we had redis containers, even though they were stopped, it printed an error.
-
 ![height:3in](imgs/DockerRmi.png)
 
 ---
@@ -241,7 +257,6 @@ Syntax:
 * We saw earlier that when running `docker run` it checks, if the image isn't available on the machine, it downloads it then runs it in a container directly.
 * What if we want to only download an image without running a container?
 * We use `docker pull` which "pulls" the image without creating a container
-
 ![](imgs/DockerPull.png)
 
 ---
@@ -289,7 +304,6 @@ Syntax:
 
 * Okay so we saw how to run a command when we are creating the container, what if we have an already running container, how can we execute a command on it?
 * We use `docker exec <container_name> <command>`
-
 ![](imgs/DockerExec1.png)
 ![](imgs/DockerExec2.png)
 
@@ -407,7 +421,6 @@ Syntax:
 <!--_color: #455a64-->
 
 - To solve this issue we use volume mapping, where as in port mapping, we map a volume on our container to a volume on our host so data are saved on host and independent of the container in a way.
-
 ![height:5in](imgs/VolumeMapping.png)
 
 ---

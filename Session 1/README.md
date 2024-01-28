@@ -107,6 +107,26 @@ Before using any of these commands we must write `docker` before it.
 
  ---
 
+ ### `start` starts containers
+
+ Syntax: `docker start <container_name>` or `docker start <container_ID>`
+
+ If we have a container that is exited or not running in general, we use `start` to start it
+
+ ![](imgs/DockerStart1.png)
+ 
+ Here we have container `test_ubuntu` which is not running
+
+ ![](imgs/DockerStartID.png)
+ ![](imgs/DockerStartName.png)
+
+ Using the name or the ID we can start it.
+
+
+ 
+
+ ---
+
  ### `stop` stops containers
 
  Syntax: `docker stop <container_ID>` or `docker stop <container_name>`
