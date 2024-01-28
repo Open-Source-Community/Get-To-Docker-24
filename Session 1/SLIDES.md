@@ -20,28 +20,6 @@ marp: true
 - **Docker commands**
 - **Docker run**
 
----
-
-<!--_backgroundColor: #cce3ee-->
-<!--_color: #455a64-->
-
-# What is Docker?
-
-- Docker is a command-line program, a background daemon and a set of services that helps in solving common software problems.
-
-- It accomplishes this using containers.
-
----
-<!--_backgroundColor: #cce3ee-->
-<!--_color: #455a64-->
-
-### Containers
-
-- Containers are virtual environments tht keep applications and software isolated from the host system.
-
-- Containers have been around for a ling time but building them manually can be challenging, this is where Docker comes in.
-
-- Docker uses existing container engines to provide consistnet containers.
 
 ---
 
@@ -50,8 +28,21 @@ marp: true
 
 ### Virtual Machines
 
-- A VM is a software that emulates an entire computer, with its kernel, architecture and resurces.
-  
+* A VM is a software that emulates an entire computer, with its kernel, architecture and resurces.
+
+---
+
+<!--_backgroundColor: #cce3ee-->
+<!--_color: #455a64-->
+
+### Containers
+
+- Containers are virtual environments that keep applications and software isolated from the host system.
+
+- Containers have been around for a long time but building them manually can be challenging, this is where Docker comes in.
+
+- Docker uses existing container engines to provide consistent containers.
+
 ---
 
 <!--_backgroundColor: #cce3ee-->
@@ -79,9 +70,18 @@ But some differences to note:
 <!--_backgroundColor: #cce3ee-->
 <!--_color: #455a64-->
 
-### Images
+# <!--fit-->Why Docker?
 
-An image is a packaged application that contains all dependencies, source code and complete environment and configurations of that application, think of it as a blueprint that you use to create instances of the application, these instances are containers.
+---
+
+<!--_backgroundColor: #cce3ee-->
+<!--_color: #455a64-->
+
+# What is Docker?
+
+- Docker is a command-line program, a background daemon and a set of services that helps in solving common software problems.
+
+- It accomplishes this using containers.
 
 ---
 
@@ -127,6 +127,15 @@ Bash is a shell and a command language, it's the most common shell to be found o
 * Docker offers lots of functionalties and has lots of commands for specific uses, we will look now at the most common commands that are used with Docker.
 
 * Before using any of these commands we must write `docker` before it.
+
+---
+
+<!--_backgroundColor: #cce3ee-->
+<!--_color: #455a64-->
+
+### Images
+
+An image is a packaged application that contains all dependencies, source code and complete environment and configurations of that application, think of it as a blueprint that you use to create instances of the application, these instances are containers.
 
 ---
 
@@ -347,7 +356,7 @@ Syntax:
 <!--_color: #455a64-->
 
 * Now it takes our input and outputs correctly. But there is still the second problem, the prompt doesn't print, here it should ask first for the name but it doesn't, why? because the application prompts on the terminal and we haven't attached it to the container terminal.
-* To solve this we add the -t flag which stands for psuedo-terminal.
+* To solve this we add the `-t` flag which stands for psuedo-terminal.
 ![](imgs/DockerRunSTDIN4.png)
 
 * So together, `-it` when used with docker run it basically takes us straight into the container's terminal.

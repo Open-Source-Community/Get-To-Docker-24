@@ -1,15 +1,12 @@
-## What is Docker
-
-Docker is a command-line program, a background daemon, and a set of remote services that take a logistical approach to solving common software problems and simplifying your experience installing, running, publishing, and removing software. It
-accomplishes this using a UNIX technology called containers
-
-### Containers
-Containers are virtual environments tht keep applications and software isolated from the host system.
-Containers have been around for a ling time but building them manually can be challenging, this is where Docker comes in.
-Docker uses existing container engines to provide consistnet containers 
-
 ### Virtual Machines
 A VM is a software that emulates an entire computer, with its kernel, architecture and resurces.  
+
+
+### Containers
+Containers are virtual environments that keep applications and software isolated from the host system.
+Containers have been around for a long time but building them manually can be challenging, this is where Docker comes in.
+Docker uses existing container engines to provide consistent containers 
+
 
 ### VM vs Containers
 
@@ -31,6 +28,11 @@ The image below show differences between VMs and Containers.
 ### Images
 
 Image is a packaged application that contains all dependencies, source codeand complete environment and configurations of that application, think of it as a blueprint that you use to create instances of the application, these instances are containers.
+
+## What is Docker
+
+Docker is a command-line program, a background daemon, and a set of remote services that take a logistical approach to solving common software problems and simplifying your experience installing, running, publishing, and removing software. It
+accomplishes this using a UNIX technology called containers
 
 
 --------
