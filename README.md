@@ -33,3 +33,16 @@ Welcome to Get To Docker Workshop 2024! This repository contains all the materia
     </ul>
     </td>
 </tr>
+<tr>
+    <td><a href="./Session%202/README.md">Session 2</a></td>
+    <td>
+    <ul>
+        <li><a href="./Session%202/README.md#Dockerfile">Dockerfile</a></li>
+        <li><a href="./Session%201/README.md#Building-the-image">Building the image</a></li>
+        <li><a href="./Session%201/README.md#Layered-architecture">Layered archiecture</a></li>
+        <li><a href="./Session%201/README.md#Docker-inspect">Docker inspect</a></li>
+        <li><a href="./Session%201/README.md#Entrypoint">Entrypoint</a></li>
+        </ul>
+    </ul>
+    </td>
+</tr>
