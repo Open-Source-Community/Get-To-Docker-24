@@ -1,13 +1,11 @@
-### How to deliver tasks 
+### How to deliver tasks (Please read first) 
 
 
 1. Make a directory (folder) with the name of the session (ex: Session 0, Session 2, etc...).
 
-2. Inside the folder, make a text or markdown file.
+2. Inside the folder, make 2 folders called `A` and `B`
 
-3. In the file write each question's number and the command you used to solve it.
-
-4. Some questions may require posting an screenshot, in this case take a screenshot of the required part and rename it to the question number (ex: Q1.png, Q4.png, etc...) and put it in the folder you created with the text or markdown file.
+3. In each folder upload the `Dockerfile` (in case of question `A` create a new folder for each image and place its Dockerfile in the folder)
 
 ---
 
