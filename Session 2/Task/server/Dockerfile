@@ -8,4 +8,4 @@ COPY package*.json /app
 COPY src /app
 
 
-RUN node start
+RUN node app.js

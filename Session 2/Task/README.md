@@ -33,3 +33,9 @@
 #### Please download the `server` folder 
 
 * The Dockerfile in the `server` folder is incorrect, there are 3 faults.
+
+  1) Correct the Dockerfile
+  2) Build the image and start a new container from it (the server runs on port `3000`)
+  3) Access the server using `localhost:<port_number>/tasks/` and take a screenshot, and upload it in the `B` folder.
+   
+   
