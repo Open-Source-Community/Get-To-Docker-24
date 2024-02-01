@@ -23,7 +23,7 @@
 
 * Second one is called `alpine-hello-world`:
   1) We will use the previously created `alpine-gcc` image as a base.
-  2) Download the main.cpp file in this folder and copy it to `/usr/hello-world` directory in the container.
+  2) Download the `main.cpp` file in this folder and copy it to `/usr/hello-world` directory in the container.
   3) Change to the directory you copied `main.cpp` to.
   4) Compile it using `g++ -o Main main.cpp`.
   5) When the container starts we want to run the compiled file, to do so we need to run.
