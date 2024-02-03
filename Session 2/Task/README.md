@@ -17,7 +17,7 @@
 
 * First one is called `alpine-gcc`:
   1) We will use `alpine` as base image.
-  2) We want to install the C++ compiler, the command to install it is `apk add gcc`.
+  2) We want to install the C++ compiler, the command to install it is `apk add g++`.
 
 * Second one is called `alpine-hello-world`:
   1) We will use the previously created `alpine-gcc` image as a base.
