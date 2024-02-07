@@ -28,7 +28,7 @@ style: |
 
 ---
 
-#  <!--fit--> Introduction to yaml
+# <!--fit--> Introduction to yaml
 
 ---
 
@@ -227,7 +227,6 @@ style: |
 
 - If we want to store all information of 5 cars `store data of different type` we will use `list of dictionaries`
 
-
 ---
 
 ## Introduction to yaml - Complex Example
@@ -268,6 +267,62 @@ cars:
 
 ---
 
+## Introduction to yaml - Notes
+
+- Dictionary is an unordered collection where as lists are ordered collection.
+
+- This means that in the following example
+
+  ```yaml
+  person:
+    name: John
+    age: 30
+  ```
+
+  is the same as
+
+  ```yaml
+  person:
+    age: 30
+    name: John
+  ```
+
+---
+
+## Introduction to yaml - Notes
+
+- While in the list the order matter
+
+  ```yaml
+  fruits:
+    - Apple
+    - Banana
+    - Orange
+  ```
+
+  is not the same as
+
+  ```yaml
+  fruits:
+    - Banana
+    - Apple
+    - Orange
+  ```
+
+---
+
+## Introduction to yaml - Notes
+
+- Any line beginning with a `#` is a comment and will be ignored by the parser.
+
+  ```yaml
+  # This is a comment
+  person:
+    name: John
+    age: 30
+  ```
+
+---
 
 # <!--fit--> Docker Compose
 
@@ -275,3 +330,241 @@ cars:
 
 ## Docker Compose
 
+- Docker Compose is a tool for defining and running multi-container Docker applications.
+
+- With Compose, you use a YAML file to configure your application's services.
+
+- Then, with a single command, you create and start all the services from your configuration.
+
+---
+
+## Docker Compose - Example
+
+- We will use a popular application provided by Docker to demonstrate the use of Docker Compose.
+
+- The application is a voting app that consists of 5 services
+
+  - Voting App (Python)
+  - In-memory DB (Redis)
+  - Worker (DotNet)
+  - DB (Postgres)
+  - Result App (NodeJS)
+
+---
+
+## Docker Compose - Example
+
+### Voting App
+
+- Is a web application developed in python to provide the user with an interface to choose between two options (a cat and a dog).
+
+### In-memory DB
+
+- When you make a selection the vote is stored in Redis
+
+- Redis is used as in memory database
+
+---
+
+## Docker Compose - Example
+
+### Worker
+
+- The vote is then processed by a worker which is an application written in DotNet
+
+- It takes the new vote and update the persistent database
+
+### DB
+
+- The persistent database is Postgres
+
+- It has only one table with the number of votes for each category (cat or dog)
+
+---
+
+## Docker Compose - Example
+
+## Result App
+
+- The result of the vote is displayed in a web application developed in NodeJS
+
+- It reads the count of votes from the postgress database and display it to the user
+
+---
+
+## Docker Compose - Example
+
+![width:1000px height:600px](imgs/architecture.excalidraw.png)
+
+---
+
+## Docker Compose - Example
+
+- First we will setup the application stack using `docker run` command
+
+- Then we will use `docker-compose` to setup the same stack
+
+- We will compare the two approaches
+
+---
+
+## Docker Compose - Example
+
+1. Create a redis container
+
+   ```dockerfile
+   docker run -d --name=redis redis
+   ```
+
+2. Create a postgres container
+
+   ```dockerfile
+   docker run -d --name=db postgres
+   ```
+
+3. Create a voting app container
+
+   ```dockerfile
+   docker run -d --name=vote -p 5000:80 example-voting-app-vote
+   ```
+
+---
+
+## Docker Compose - Example
+
+4. Create a result app container
+
+   ```dockerfile
+   docker run -d --name=result -p 5001:80 example-voting-app-result
+   ```
+
+5. Create a worker container
+
+   ```dockerfile
+    docker run -d --name=worker example-voting-app-worker
+   ```
+
+---
+
+## Docker Compose - Example
+
+![alt text](imgs/image-2.png)
+
+We did not link the containers together
+
+---
+
+## Docker Compose `--link`
+
+- We can link the containers together using `--link` option
+
+- Using `--link` option is depreacted
+
+- if you look at the voting app code you will find that it uses `redis` and `db` as the hostname to connect to the redis and postgres containers
+
+  ![redis host](imgs/image-3.png)
+
+  ![db host](imgs/image-4.png)
+
+- This why we named them `redis` and `db` when we created the containers
+
+---
+
+## Docker Compose `--link`
+
+- We need to link the voting app to the redis and postgres containers
+
+  ```dockerfile
+    docker run -d --name=vote -p 5000:80 --link redis:redis  example-voting-app-vote
+  ```
+
+- We need to link the result app to the postgres container
+
+  ```dockerfile
+  docker run -d --name=result -p 5001:80 --link db:db example-voting-app-result
+  ```
+
+---
+
+## Docker Compose `--link`
+
+- If you look at the worker code you will find that it uses `redis` and `db` as the hostname to connect to the redis and postgres containers
+
+  ![alt text](imgs/image-5.png)
+
+- So we need to link the worker to the redis and postgres containers
+
+  ```dockerfile
+  docker run -d --name=worker --link redis:redis --link db:db example-voting-app-worker
+  ```
+
+---
+
+## Docker Compose
+
+- So we can start our application stack using the following commands
+
+  ```dockerfile
+  docker run -d --name=redis redis
+  docker run -d --name=db postgres
+  docker run -d --name=vote -p 5000:80 --link redis:redis  example-voting-app-vote
+  docker run -d --name=result -p 5001:80 --link db:db example-voting-app-result
+  docker run -d --name=worker --link redis:redis --link db:db example-voting-app-worker
+  ```
+
+- It is easy to convert the above commands to a `docker-compose.yml` file
+
+---
+
+## Docker Compose - `docker-compose.yml`
+
+- The `docker-compose.yml` file is a file that contains the configuration of all the services that make up the application stack
+
+- The file is written in yaml format
+
+- The file is used by the `docker-compose` command to create and start all the services from the configuration
+
+---
+
+## Docker Compose - `docker-compose.yml`
+
+- `docker compose up` command reads the `docker-compose.yml` file and creates and starts all the services from the configuration
+
+- `docker compose up -d` command does the same but in detached mode
+
+- `docker compose down` command stops and removes all the services from the configuration
+
+- `docker compose ps` command lists all the services from the configuration
+
+---
+
+## Docker Compose - Versions
+
+- Version 1
+
+  - The original version of Compose
+
+  - It is not recommended for production use
+
+  - If you want to deploy containers on different network other than
+    default bridge network, there is no way to specify that in version 1
+
+  - If you have a depnedency or start of order between services, there is no way to specify that in version 1
+
+---
+
+## Docker Compose - Versions
+
+- Version 2
+
+  - From version 2 and up you must specify the version of the Compose file format being used
+
+  - It is the most widely used version
+
+  - It supports `networks` and `depends_on` options
+
+  - It is the default version
+
+  - All containers are listed under `services` key
+
+  - Docker automatically create a detecated bridge network for the services, and then attaches all containers to that new netowrk, so all containers can communicate to each others using the service name, so you don't need to use `--link` option

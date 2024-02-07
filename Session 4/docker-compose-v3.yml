@@ -1,0 +1,31 @@
+version: 2
+
+services:
+  redis:
+    image: redis
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+
+  vote:
+    image: example-voting-app-vote
+    ports:
+      - 5000:80
+    depends_on:
+      - redis
+
+  result:
+    image: example-voting-app-result
+    ports:
+      - 5001:80
+    depends_on:
+      - db
+
+  worker:
+    image: example-voting-app-worker
+    depends_on:
+      - redis
+      - db
