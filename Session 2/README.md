@@ -119,7 +119,7 @@ To run a server with Node.js we use `node server.js` command, so we pass it in t
 
 Note that `CMD` is the last instruction to run in the Dockerfile and it executes when the container starts.
 
-Also note that we can have *one* `CMD` instruction in the Dockerfile.
+Also note that only one `CMD` instruction is executed in the Dokcerfile. If we put multiple `CMD` instructions *only the last one* will be executed by Docker.
 
 ---
 
@@ -129,7 +129,7 @@ OK so we may notice that both `RUN` and `CMD` are used to execute temrinal comma
 
 `RUN` is an image build step, after each `RUN` instruction is committed to the container image, we can have many `RUN` instructions as we want.
 
-`CMD` executes by default when a container from the image is started, there can be only one `CMD` in the Dockerfile.
+`CMD` executes by default when a container from the image is started, there should be only one `CMD` in the Dockerfile, because as stated above only one `CMD` instruction is read by Docker.
 
 ---
 
