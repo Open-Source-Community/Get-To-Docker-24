@@ -38,7 +38,7 @@ To start building our image we first need to create our Dockerfile, most text ed
 
 - Dockerfile start from a parent image or "base image".
 - It's a Docker image that your image is based on.
-- We choose the base image dependingon the tools we need to have.
+- We choose the base image depending on the tools we need to have.
   - For example here we need a base image that has `npm` installed, `npm` is a package manager for JavaScript and it installs most Node.js libraries.
   
 - Dockerfile consists of instructions and arguments, we will look at some of these instructions as we go on building our server.
@@ -129,7 +129,7 @@ OK so we may notice that both `RUN` and `CMD` are used to execute temrinal comma
 
 `RUN` is an image build step, after each `RUN` instruction is committed to the container image, we can have many `RUN` instructions as we want.
 
-`CMD` executes by default when a container from the image is started, there can be only on `CMD` in the Dockerfile.
+`CMD` executes by default when a container from the image is started, there can be only one `CMD` in the Dockerfile.
 
 ---
 

@@ -27,7 +27,7 @@ The image below show differences between VMs and Containers.
  
 ### Images
 
-Image is a packaged application that contains all dependencies, source codeand complete environment and configurations of that application, think of it as a blueprint that you use to create instances of the application, these instances are containers.
+Image is a packaged application that contains all dependencies, source code and complete environment and configurations of that application, think of it as a blueprint that you use to create instances of the application, these instances are containers.
 
 ## What is Docker
 
@@ -49,7 +49,7 @@ You can find a guide on how to install Docker on WSL [here](https://drive.google
 
 On linux you can install Docker from your package manager
 
-* `sudo apt install docker` on Debian and Ubuntu based ditros
+* `sudo apt install docker` on Debian and Ubuntu based distros
 * `sudo dnf install docker` on Fedora based distros
 * `sudo pacman -Syu docker` in Arch based distros
 
